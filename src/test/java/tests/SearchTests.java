@@ -1,6 +1,7 @@
 package tests;
 
 import lib.CoreTestCase;
+import lib.Platform;
 import lib.ui.SearchPageObject;
 import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
@@ -92,19 +93,25 @@ public class SearchTests extends CoreTestCase {
         searchPageObject.initSearchInput();
         searchPageObject.typeSearchLine("Java");
         this.hideKeyboard();
-        searchPageObject.assureSearchResultArticlesIncludeKeyword(6, "Java");
+        searchPageObject.assureSearchResultArticlesIncludeKeyword(3, "Java");
     }
 
     @Test
-    public void testSearchForAterticlesWithTitleAndDescription()
+    public void testSearchForArticlesWithTitleAndDescription()
     {
         SearchPageObject searchPageObject = SearchPageObjectFactory.get(driver);
 
         searchPageObject.initSearchInput();
         searchPageObject.typeSearchLine("Java");
         this.hideKeyboard();
-        searchPageObject.waitForElementByTitleAndDescription("Java", "Island of Indonesia");
-        searchPageObject.waitForElementByTitleAndDescription("Java (programming language)", "Object-oriented programming language");
-        searchPageObject.waitForElementByTitleAndDescription("JavaScript", "Programming language");
+        if (Platform.getInstance().isAndroid()) {
+            searchPageObject.waitForElementByTitleAndDescription("Java", "Island of Indonesia");
+            searchPageObject.waitForElementByTitleAndDescription("Java (programming language)", "Object-oriented programming language");
+            searchPageObject.waitForElementByTitleAndDescription("JavaScript", "Programming language");
+        } else {
+            searchPageObject.waitForElementByTitleAndDescriptionUsingCell(1,"Java", "Indonesian island");
+            searchPageObject.waitForElementByTitleAndDescriptionUsingCell(2, "JavaScript", "High-level programming language");
+            searchPageObject.waitForElementByTitleAndDescriptionUsingCell(3,"Java (programming language)", "Object-oriented programming language");
+        }
     }
 }

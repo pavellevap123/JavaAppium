@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="15" failures="3" name="suites.TestSuite" time="931.91" errors="5" skipped="0">
+<testsuite tests="15" failures="3" name="suites.TestSuite" time="812.852" errors="5" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib"/>
@@ -66,7 +66,7 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="tests.ArticleTests" name="testAssertTitlePresent" time="40.114">
+  <testcase classname="tests.ArticleTests" name="testAssertTitlePresent" time="179.658">
     <failure message="An element &apos;id:Java (programming language)&apos; supposed to be present Title wasn&apos;t found on the page" type="java.lang.AssertionError">java.lang.AssertionError: An element &apos;id:Java (programming language)&apos; supposed to be present Title wasn&apos;t found on the page
 	at lib.ui.MainPageObject.assertElementPresent(MainPageObject.java:194)
 	at lib.ui.ArticlePageObject.assertTitlePresent(ArticlePageObject.java:152)
@@ -105,11 +105,11 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </failure>
-    <system-err>Sep 30, 2020 12:28:28 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+    <system-err>Oct 02, 2020 10:43:33 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
 INFO: Detected dialect: W3C
 </system-err>
   </testcase>
-  <testcase classname="tests.ArticleTests" name="testCompareArticleTitle" time="33.859">
+  <testcase classname="tests.ArticleTests" name="testCompareArticleTitle" time="17.091">
     <failure message="We see unexpected title expected:&lt;Java (programming language)&gt; but was:&lt;null&gt;" type="junit.framework.ComparisonFailure">junit.framework.ComparisonFailure: We see unexpected title expected:&lt;Java (programming language)&gt; but was:&lt;null&gt;
 	at junit.framework.Assert.assertEquals(Assert.java:100)
 	at junit.framework.TestCase.assertEquals(TestCase.java:261)
@@ -150,12 +150,12 @@ INFO: Detected dialect: W3C
 </failure>
     <system-out>null
 </system-out>
-    <system-err>Sep 30, 2020 12:28:48 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+    <system-err>Oct 02, 2020 10:43:51 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
 INFO: Detected dialect: W3C
 </system-err>
   </testcase>
-  <testcase classname="tests.ArticleTests" name="testSwipeArticle" time="269.761"/>
-  <testcase classname="tests.ChangeAppConditionTests" name="testChangeScreenOrientationOnSearchResults" time="46.049">
+  <testcase classname="tests.ArticleTests" name="testSwipeArticle" time="254.102"/>
+  <testcase classname="tests.ChangeAppConditionTests" name="testChangeScreenOrientationOnSearchResults" time="30.745">
     <failure message="Article&apos;s title before and after rotation aren&apos;t equal expected:&lt;null&gt; but was:&lt;Java (programming language)&gt;" type="junit.framework.ComparisonFailure">junit.framework.ComparisonFailure: Article&apos;s title before and after rotation aren&apos;t equal expected:&lt;null&gt; but was:&lt;Java (programming language)&gt;
 	at junit.framework.Assert.assertEquals(Assert.java:100)
 	at junit.framework.TestCase.assertEquals(TestCase.java:261)
@@ -194,12 +194,12 @@ INFO: Detected dialect: W3C
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </failure>
-    <system-err>Sep 30, 2020 12:33:50 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+    <system-err>Oct 02, 2020 10:48:21 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
 INFO: Detected dialect: W3C
 </system-err>
   </testcase>
-  <testcase classname="tests.ChangeAppConditionTests" name="testCheckSearchArticleInBackground" time="21.301"/>
-  <testcase classname="tests.GetStartedTest" name="testPassThroughWelcome" time="38.631">
+  <testcase classname="tests.ChangeAppConditionTests" name="testCheckSearchArticleInBackground" time="21.354"/>
+  <testcase classname="tests.GetStartedTest" name="testPassThroughWelcome" time="29.867">
     <error message="Expected condition failed: Can&apos;t find &apos;New ways to explore&apos;
  (tried for 10 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: Can&apos;t find &apos;New ways to explore&apos;
  (tried for 10 second(s) with 500 milliseconds interval)
@@ -244,7 +244,7 @@ INFO: Detected dialect: W3C
 Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.id: New ways to explore
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.12.0&apos;, revision: &apos;7c6e0b3&apos;, time: &apos;2018-05-08T14:04:26.12Z&apos;
-System info: host: &apos;Pavels-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:1caa:d0b8:c278:1513%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.7&apos;, java.version: &apos;1.8.0_231&apos;
+System info: host: &apos;Pavels-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:14d9:8108:b6fa:73f3%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.7&apos;, java.version: &apos;1.8.0_231&apos;
 Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.ExpectedConditions.lambda$findElement$0(ExpectedConditions.java:896)
 	at java.util.Optional.orElseThrow(Optional.java:290)
@@ -255,21 +255,21 @@ Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
 	... 36 more
 </error>
-    <system-err>Sep 30, 2020 12:34:59 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+    <system-err>Oct 02, 2020 10:49:14 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
 INFO: Detected dialect: W3C
 </system-err>
   </testcase>
-  <testcase classname="tests.MyListsTests" name="testSaveFirstArticleToMyList" time="79.423"/>
-  <testcase classname="tests.MyListsTests" name="testSaveTwoArticles" time="256.556">
-    <error message="Expected condition failed: Can&apos;t close article by clicking X button
- (tried for 5 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: Can&apos;t close article by clicking X button
+  <testcase classname="tests.MyListsTests" name="testSaveFirstArticleToMyList" time="72.464"/>
+  <testcase classname="tests.MyListsTests" name="testSaveTwoArticles" time="78.302">
+    <error message="Expected condition failed: Can&apos;t find option to add article to reading list
+ (tried for 5 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: Can&apos;t find option to add article to reading list
  (tried for 5 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:81)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
 	at lib.ui.MainPageObject.waitForElementPresent(MainPageObject.java:33)
 	at lib.ui.MainPageObject.waitForElementAndClick(MainPageObject.java:43)
-	at lib.ui.ArticlePageObject.closeArticle(ArticlePageObject.java:142)
-	at tests.MyListsTests.testSaveTwoArticles(MyListsTests.java:84)
+	at lib.ui.ArticlePageObject.addArticleToMySaved(ArticlePageObject.java:134)
+	at tests.MyListsTests.testSaveTwoArticles(MyListsTests.java:69)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -303,10 +303,10 @@ INFO: Detected dialect: W3C
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.id: Back
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.id: Save for later
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.12.0&apos;, revision: &apos;7c6e0b3&apos;, time: &apos;2018-05-08T14:04:26.12Z&apos;
-System info: host: &apos;Pavels-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:1caa:d0b8:c278:1513%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.7&apos;, java.version: &apos;1.8.0_231&apos;
+System info: host: &apos;Pavels-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:14d9:8108:b6fa:73f3%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.7&apos;, java.version: &apos;1.8.0_231&apos;
 Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.ExpectedConditions.lambda$findElement$0(ExpectedConditions.java:896)
 	at java.util.Optional.orElseThrow(Optional.java:290)
@@ -317,14 +317,14 @@ Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
 	... 37 more
 </error>
-    <system-err>Sep 30, 2020 12:36:57 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+    <system-err>Oct 02, 2020 10:50:55 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
 INFO: Detected dialect: W3C
 </system-err>
   </testcase>
-  <testcase classname="tests.SearchTests" name="testAmountOfNotEmptySearch" time="20.345"/>
-  <testcase classname="tests.SearchTests" name="testAmountOfEmptySearch" time="15.905"/>
-  <testcase classname="tests.SearchTests" name="testCancelSearch" time="19.208"/>
-  <testcase classname="tests.SearchTests" name="testCheckKeywordInSearchResults" time="21.793">
+  <testcase classname="tests.SearchTests" name="testAmountOfNotEmptySearch" time="17.332"/>
+  <testcase classname="tests.SearchTests" name="testAmountOfEmptySearch" time="13.961"/>
+  <testcase classname="tests.SearchTests" name="testCancelSearch" time="14.426"/>
+  <testcase classname="tests.SearchTests" name="testCheckKeywordInSearchResults" time="20.137">
     <error message="Expected condition failed: There is no article #1 of 6 with mention of &apos;Java&apos; keyword
  (tried for 5 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: There is no article #1 of 6 with mention of &apos;Java&apos; keyword
  (tried for 5 second(s) with 500 milliseconds interval)
@@ -369,7 +369,7 @@ INFO: Detected dialect: W3C
 Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.xpath: //XCUIElementTypeCell[0]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[contains(@name,&apos;Java&apos;]
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.12.0&apos;, revision: &apos;7c6e0b3&apos;, time: &apos;2018-05-08T14:04:26.12Z&apos;
-System info: host: &apos;Pavels-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:1caa:d0b8:c278:1513%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.7&apos;, java.version: &apos;1.8.0_231&apos;
+System info: host: &apos;Pavels-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:14d9:8108:b6fa:73f3%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.7&apos;, java.version: &apos;1.8.0_231&apos;
 Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.ExpectedConditions.lambda$findElement$0(ExpectedConditions.java:896)
 	at java.util.Optional.orElseThrow(Optional.java:290)
@@ -380,11 +380,11 @@ Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
 	... 36 more
 </error>
-    <system-err>Sep 30, 2020 12:42:08 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+    <system-err>Oct 02, 2020 10:52:59 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
 INFO: Detected dialect: W3C
 </system-err>
   </testcase>
-  <testcase classname="tests.SearchTests" name="testSearchForArticlesAndCancelSearch" time="20.862">
+  <testcase classname="tests.SearchTests" name="testSearchForArticlesAndCancelSearch" time="18.454">
     <error message="Expected condition failed: There is no article #1 of 3 with mention of &apos;Java&apos; keyword
  (tried for 5 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: There is no article #1 of 3 with mention of &apos;Java&apos; keyword
  (tried for 5 second(s) with 500 milliseconds interval)
@@ -429,7 +429,7 @@ INFO: Detected dialect: W3C
 Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.xpath: //XCUIElementTypeCell[0]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[contains(@name,&apos;Java&apos;]
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.12.0&apos;, revision: &apos;7c6e0b3&apos;, time: &apos;2018-05-08T14:04:26.12Z&apos;
-System info: host: &apos;Pavels-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:1caa:d0b8:c278:1513%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.7&apos;, java.version: &apos;1.8.0_231&apos;
+System info: host: &apos;Pavels-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:14d9:8108:b6fa:73f3%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.7&apos;, java.version: &apos;1.8.0_231&apos;
 Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.ExpectedConditions.lambda$findElement$0(ExpectedConditions.java:896)
 	at java.util.Optional.orElseThrow(Optional.java:290)
@@ -440,12 +440,12 @@ Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
 	... 36 more
 </error>
-    <system-err>Sep 30, 2020 12:42:30 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+    <system-err>Oct 02, 2020 10:53:19 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
 INFO: Detected dialect: W3C
 </system-err>
   </testcase>
-  <testcase classname="tests.SearchTests" name="testSearch" time="16.454"/>
-  <testcase classname="tests.SearchTests" name="testSearchForAterticlesWithTitleAndDescription" time="31.649">
+  <testcase classname="tests.SearchTests" name="testSearch" time="14.675"/>
+  <testcase classname="tests.SearchTests" name="testSearchForAterticlesWithTitleAndDescription" time="30.284">
     <error message="Expected condition failed: Element with title &apos;Java&apos; and description &apos;Island of Indonesia&apos; wasn&apos;t found
  (tried for 15 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: Element with title &apos;Java&apos; and description &apos;Island of Indonesia&apos; wasn&apos;t found
  (tried for 15 second(s) with 500 milliseconds interval)
@@ -490,7 +490,7 @@ INFO: Detected dialect: W3C
 Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.xpath: //XCUIElementTypeStaticText[contains(@name,&apos;Java&apos;)]/../XCUIElementTypeStaticText[contains(@name,&apos;Island of Indonesia&apos;)]
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.12.0&apos;, revision: &apos;7c6e0b3&apos;, time: &apos;2018-05-08T14:04:26.12Z&apos;
-System info: host: &apos;Pavels-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:1caa:d0b8:c278:1513%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.7&apos;, java.version: &apos;1.8.0_231&apos;
+System info: host: &apos;Pavels-MacBook-Pro.local&apos;, ip: &apos;fe80:0:0:0:14d9:8108:b6fa:73f3%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.15.7&apos;, java.version: &apos;1.8.0_231&apos;
 Driver info: driver.version: unknown
 	at org.openqa.selenium.support.ui.ExpectedConditions.lambda$findElement$0(ExpectedConditions.java:896)
 	at java.util.Optional.orElseThrow(Optional.java:290)
@@ -503,7 +503,7 @@ Driver info: driver.version: unknown
 </error>
     <system-out>xpath://XCUIElementTypeStaticText[contains(@name,&apos;Java&apos;)]/../XCUIElementTypeStaticText[contains(@name,&apos;Island of Indonesia&apos;)]
 </system-out>
-    <system-err>Sep 30, 2020 12:43:07 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+    <system-err>Oct 02, 2020 10:53:53 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
 INFO: Detected dialect: W3C
 </system-err>
   </testcase>

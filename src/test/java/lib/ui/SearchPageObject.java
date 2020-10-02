@@ -1,6 +1,7 @@
 package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
+import lib.Platform;
 
 abstract public class SearchPageObject extends MainPageObject {
 
@@ -37,8 +38,22 @@ abstract public class SearchPageObject extends MainPageObject {
     private static String getResultSearchElementWithTitleAndDescription(String title, String description)
     {
         String xpath_with_replaced_title = SEARCH_RESULT_BY_TITLE_AND_DESCRIPTION_TPL.replace("{TITLE}", title);
-        System.out.println(xpath_with_replaced_title.replace("{DESCRIPTION}", description));
         return xpath_with_replaced_title.replace("{DESCRIPTION}", description);
+    }
+
+    private static String[] getResultSearchElementByCellWithIndexAndText(int number_of_cell, String title, String description)
+    {
+        String[] xpaths_with_replaced_data = new String[2];
+
+        String xpath_with_replaced_index_and_title = SEARCH_RESULT_BY_TITLE_AND_DESCRIPTION_TPL.replace("{INDEX}", String.valueOf(number_of_cell));
+        xpath_with_replaced_index_and_title = xpath_with_replaced_index_and_title.replace("{SUBSTRING}", title);
+        xpaths_with_replaced_data[0] = xpath_with_replaced_index_and_title;
+
+        String xpath_with_replaced_index_and_description = SEARCH_RESULT_BY_TITLE_AND_DESCRIPTION_TPL.replace("{INDEX}", String.valueOf(number_of_cell));
+        xpath_with_replaced_index_and_description = xpath_with_replaced_index_and_description.replace("{SUBSTRING}", description);
+        xpaths_with_replaced_data[1] = xpath_with_replaced_index_and_description;
+
+        return xpaths_with_replaced_data;
     }
     /* TEMPLATE METHODS */
 
@@ -101,8 +116,15 @@ abstract public class SearchPageObject extends MainPageObject {
     {
         for (int i=0; i<amount_of_articles; i++)
         {
-            String dynamic_xpath = getResultSearchElementWithIndex(i, keyword);
             int humanReadableIndex = i+1;
+            String dynamic_xpath;
+
+            if (Platform.getInstance().isAndroid()) {
+                dynamic_xpath = getResultSearchElementWithIndex(i, keyword);
+            } else {
+                dynamic_xpath = getResultSearchElementWithIndex(humanReadableIndex, keyword);
+            }
+
             this.waitForElementPresent(
                     dynamic_xpath,
                     String.format("There is no article #%x of %x with mention of '%s' keyword", humanReadableIndex, amount_of_articles, keyword),
@@ -135,7 +157,24 @@ abstract public class SearchPageObject extends MainPageObject {
         this.waitForElementPresent(
                 modified_xpath_with_title_and_desc,
                 "Element with title '" + title + "' and description '" + description + "' wasn't found",
-                15);
+                15)
+        ;
+    }
+
+    public void waitForElementByTitleAndDescriptionUsingCell(int number_of_cell, String title, String description)
+    {
+        String[] modified_xpath_with_title_and_desc = getResultSearchElementByCellWithIndexAndText(number_of_cell, title, description);
+        this.waitForElementPresent(
+                modified_xpath_with_title_and_desc[0],
+                "Element with title '" + title + " wasn't found",
+                15
+        );
+
+        this.waitForElementPresent(
+                modified_xpath_with_title_and_desc[1],
+                "Element with description '" + description + "' wasn't found",
+                15
+        );
     }
 
     public void clickClearButtonInSearchField()
