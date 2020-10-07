@@ -2,10 +2,7 @@ package tests;
 
 import lib.CoreTestCase;
 import lib.Platform;
-import lib.ui.ArticlePageObject;
-import lib.ui.MyListsPageObject;
-import lib.ui.NavigationUI;
-import lib.ui.SearchPageObject;
+import lib.ui.*;
 import lib.ui.factories.ArticlePageObjectFactory;
 import lib.ui.factories.MyListsPageObjectFactory;
 import lib.ui.factories.NavigationUIFactory;
@@ -16,6 +13,9 @@ public class MyListsTests extends CoreTestCase {
 
     private static final String name_of_folder = "Learning programming";
     private static final String name_of_folder2 = "Tech companies";
+    private static final String
+            login = "Pave111",
+            password = "Lolkekazaza123";
 
     @Test
     public void testSaveFirstArticleToMyList() throws InterruptedException {
@@ -32,13 +32,32 @@ public class MyListsTests extends CoreTestCase {
         if (Platform.getInstance().isAndroid()) {
             articlePageObject.addArticleToMyListWithOnboarding(name_of_folder);
             articlePageObject.closeArticle();
-        } else {
+        } else if (Platform.getInstance().isIOS()) {
             articlePageObject.addArticleToMySaved();
             articlePageObject.closeArticle();
             searchPageObject.clickCancelSearch();
+        } else {
+            articlePageObject.addArticleToMySaved();
+        }
+        if (Platform.getInstance().isMW()) {
+            AuthorizationPageObject auth = new AuthorizationPageObject(driver);
+            auth.clickAuthButton();
+            auth.enterLoginData(login, password);
+            auth.submitForm();
+
+            articlePageObject.waitForTitleElement();
+
+            assertEquals(
+                    "We are not on the same page after login",
+                    article_title,
+                    articlePageObject.getArticleTitle()
+            );
+
+            articlePageObject.addArticleToMySaved();
         }
 
         NavigationUI navigationUI = NavigationUIFactory.get(driver);
+        navigationUI.openNavigation();
         navigationUI.clickMyLists();
 
         MyListsPageObject myListsPageObject = MyListsPageObjectFactory.get(driver);
@@ -65,10 +84,18 @@ public class MyListsTests extends CoreTestCase {
             articlePageObject.addArticleToMyListWithOnboarding(name_of_folder2);
             articlePageObject.closeArticle();
             searchPageObject.initSearchInput();
-        } else {
+        } else if (Platform.getInstance().isIOS()){
             articlePageObject.addArticleToMySaved();
             articlePageObject.closeArticle();
             searchPageObject.clickClearButtonInSearchField();
+        } else {
+            articlePageObject.addArticleToMySaved();
+            AuthorizationPageObject auth = new AuthorizationPageObject(driver);
+            auth.clickAuthButton();
+            auth.enterLoginData(login, password);
+            auth.submitForm();
+            articlePageObject.addArticleToMySaved();
+            searchPageObject.initSearchInput();
         }
 
         searchPageObject.typeSearchLine("Google");
@@ -76,10 +103,18 @@ public class MyListsTests extends CoreTestCase {
 
         if (Platform.getInstance().isAndroid()) {
             articlePageObject.addArticleToMyListWithoutOnboarding(name_of_folder2);
-        } else {
+        } else if (Platform.getInstance().isIOS()){
             articlePageObject.addArticleToMySaved();
             articlePageObject.closeArticle();
             searchPageObject.clickCancelSearch();
+        } else {
+            articlePageObject.addArticleToMySaved();
+            NavigationUI navigationUI = NavigationUIFactory.get(driver);
+            navigationUI.openNavigation();
+            navigationUI.clickMyLists();
+            MyListsPageObject myListsPageObject = MyListsPageObjectFactory.get(driver);
+            myListsPageObject.swipeByArticleToDelete("Apple Inc.");
+            return;
         }
         articlePageObject.closeArticle();
 
